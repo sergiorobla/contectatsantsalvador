@@ -1,4 +1,3 @@
-import { neighborhoods } from './data';
 interface Neighborhood {
 	name: string;
 	positions: [number, number][]; // Array de coordenadas

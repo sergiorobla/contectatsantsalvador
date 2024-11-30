@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import EventCard from "../components/Cartelera/EventCard";
-import { events as initialEvents } from "../data/data"; // Importa tu array de eventos
+import { useEvents } from "../context/EventContext"; // Importamos el contexto
 
 const EventList: React.FC = () => {
-    const [events, setEvents] = useState(initialEvents);
+    const { events, setEvents } = useEvents(); // Accedemos a los eventos del contexto
     const [filterFavourites, setFilterFavourites] = useState(false); // Estado para el filtro de favoritos
     const [selectedNeighborhood, setSelectedNeighborhood] = useState<string>(""); // Estado para el filtro de barrio
 
@@ -19,7 +19,7 @@ const EventList: React.FC = () => {
                 ? { ...event, isFavourite: !event.isFavourite } // Cambia el estado de favorito
                 : event
         );
-        setEvents(updatedEvents);
+        setEvents(updatedEvents); // Actualizamos el estado global de eventos
     };
 
     // Filtrar los eventos según los filtros aplicados
