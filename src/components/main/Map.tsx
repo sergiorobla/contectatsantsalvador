@@ -2,10 +2,17 @@ import React from 'react';
 import { MapContainer, TileLayer, Polygon, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { neighborhoods } from '../../data'; // Asegúrate de la ruta correcta a tu archivo data.ts
+import chinchetaIcon from '../../../public/chincheta.png'; // Importa correctamente la imagen
 import { events } from '../../data'; // Asegúrate de importar los eventos también
+import L from 'leaflet'; // Importa L desde leaflet
+
+const customIcon = L.icon({
+    iconUrl: chinchetaIcon,
+    iconSize: [30, 30],
+    iconAnchor: [10, 30],
+});
 
 const Map: React.FC = () => {
-    // Centro del mapa (puedes ajustar esto según tus necesidades)
     const center: [number, number] = [41.123, 1.25]; // Coordenadas aproximadas para centrar el mapa
 
     return (
@@ -23,7 +30,7 @@ const Map: React.FC = () => {
                 </Polygon>
             ))}
             {events.map((event, index) => (
-                <Marker key={index} position={event.coordinates}>
+                <Marker key={index} position={event.coordinates} icon={customIcon}>
                     <Popup>
                         <img src={event.imageUrl} alt={event.name} style={{ width: '100%' }} />
                         <h3>{event.name}</h3>

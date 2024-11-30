@@ -189,6 +189,7 @@ body {
 
 /* CAMBIO DE TEMA */
 .mode {
+  width: 50px;
   max-width: 50px;
 }
 .mode-sec {
