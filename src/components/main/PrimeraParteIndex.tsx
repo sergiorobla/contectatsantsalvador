@@ -1,12 +1,10 @@
 import React from "react";
-import MenuLat from "./MenuLat";
 import NotIndSec from "./NotIndSec";
 import NotIndPri from "./NotIndaPri";
 import { useTheme } from "../../logic/ThemeContext";
 
 const PrimeraParteIndex: React.FC = () => {
   const { theme } = useTheme();
-  const imgSrc = theme === "light" ? "./img3.png" : "./img2.png";
 
   return (
     <>
@@ -32,18 +30,12 @@ const PrimeraParteIndex: React.FC = () => {
                   theme === "light" ? "but-in-light" : "but-in-dark"
                 }`}
               >
-                Ver más 
+                Ver más Noticias
               </button>
             </div>
           </div>
         </div>
-        
       </div>
-      <img
-        style={{ width: "100%", position: "relative", top: "5px" }}
-        src={imgSrc}
-        alt="Tema actual"
-      />
     </>
   );
 };
