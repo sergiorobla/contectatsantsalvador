@@ -2,27 +2,25 @@ import { useState } from "react";
 import React from "react";
 import PrimeraParteIndex from "./PrimeraParteIndex";
 import { useEvents } from "../../logic/CarteleraContext";
-import EventsPage from "./EventsPage.js";
+import EventsPage from "./EventsPage";
 import { useTheme } from "../../logic/ThemeContext";
-import SearchBar from "./searchBar.js";
+import SearchBar from "./searchBar";
 
-// Optional: Define prop types if any
-interface MainProps {
-  // Add any props here if needed
-}
-
-const Main: React.FC<MainProps> = () => {
-  const { events, setEvents } = useEvents();
+const Main: React.FC = () => {
+  const { events } = useEvents();
   const [filterText, setFilterText] = useState("");
   const { theme } = useTheme();
 
-  // Función de filtro
+  // Filtrar eventos
   const filteredEvents = events.filter((event) => {
     const matchesText =
       event.name.toLowerCase().includes(filterText.toLowerCase()) ||
       event.description.toLowerCase().includes(filterText.toLowerCase());
     return matchesText;
   });
+
+  // Mostrar solo los 3 primeros eventos filtrados
+  const limitedEvents = filteredEvents.slice(0, 3);
 
   return (
     <main>
@@ -36,7 +34,8 @@ const Main: React.FC<MainProps> = () => {
         {/* Barra de búsqueda */}
         <SearchBar filterText={filterText} onFilterTextChange={setFilterText} />
       </div>
-      <EventsPage />
+      {/* Pasar eventos filtrados a EventsPage */}
+      <EventsPage events={limitedEvents} />
       <PrimeraParteIndex />
     </main>
   );
