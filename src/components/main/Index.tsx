@@ -13,8 +13,8 @@ const Main: React.FC = () => {
           theme === "light" ? "inicio-busc-light" : "inicio-busc-dark"
         }`}
       >
-        <h1>Conecta't</h1>
-        <p>Te damos la Bienvenida al Barrio Sant Salvador</p>
+        <h1>Connecta't</h1>
+        <p>Benvinguts al barri de Sant Salvador</p>
         <Browser />
       </div>
       <PrimeraParteIndex />

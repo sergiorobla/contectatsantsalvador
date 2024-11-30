@@ -9,14 +9,12 @@ function NotIndPri(): JSX.Element { // Specify return type as JSX.Element
     <div className="not-1">
       <p>{fechaFormateada}</p>
       <p className={`not-tit ${theme === "light" ? "not-tit-light" : "not-tit-dark"}`}>
-        Conecta't, la nueva aplicación para los vecinos de San Salvador para su
-        seguridad y su beneficio personal
+      Tarragona Impulsa celebra un Hackaton en la Tabacalera
       </p>
       <p className="not-in-text">
-        El Palau d'Esports Catalunya i el pavelló de Campclar tornaran a vibrar
-        amb aquesta competició els dies 6, 7 i 8 de desembre
+      El sábado 30 de noviembre el emblemático edificio de Tarragona acogerá esta competición de programación, apadrinada por diferentes instituciones de la zona.
       </p>
-      <img src="./img1.png" alt="Imagen destacada" /> {/* Added alt text for accessibility */}
+      <img src="./img1.jpeg" alt="Imagen destacada" /> {/* Added alt text for accessibility */}
     </div>
   );
 }

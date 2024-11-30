@@ -19,7 +19,7 @@
   --light-contenedor-error: #ffdad6;
   --light-sobre-contenedor-error: #410002;
 
-  --light-superficie-oscura: #f3d3cf;
+  --light-superficie-oscura: #fefae0;
   --light-superficie: #fff8f7;
   --light-superficie-brillante: #fff8f7;
 
@@ -218,7 +218,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 0;
+  padding: 70px 0;
 }
 
 .inicio-busc-light {
@@ -232,7 +232,7 @@ body {
 }
 
 .inicio-busc h1 {
-  font-size: 100px;
+  font-size: 70px;
   letter-spacing: 5px;
   margin: 0;
 }

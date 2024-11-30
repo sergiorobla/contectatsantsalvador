@@ -13,12 +13,10 @@ const NotIndSec: React.FC = () => {
           theme === "light" ? "not-tit-light" : "not-tit-dark"
         }`}
       >
-        Conecta't, la nueva aplicación para los vecinos de San Salvador para su
-        seguridad y su beneficio personal
+     Conferencia sobre el futuro de la tecnología en Reus
       </p>
       <p className="not-in-text-sec">
-        Conecta't, la nueva aplicación para los vecinos de San Salvador para su
-        seguridad y su beneficio personal
+      El domingo 1 de diciembre se llevará a cabo una conferencia sobre el impacto de la inteligencia artificial en las empresas, con la participación de expertos del sector.
       </p>
     </div>
   );

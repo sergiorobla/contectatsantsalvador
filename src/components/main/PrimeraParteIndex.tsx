@@ -32,12 +32,12 @@ const PrimeraParteIndex: React.FC = () => {
                   theme === "light" ? "but-in-light" : "but-in-dark"
                 }`}
               >
-                Ver más Noticias
+                Ver más 
               </button>
             </div>
           </div>
         </div>
-        <MenuLat />
+        
       </div>
       <img
         style={{ width: "100%", position: "relative", top: "5px" }}
