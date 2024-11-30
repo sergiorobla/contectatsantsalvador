@@ -1,11 +1,13 @@
 import React, { createContext, useState, useEffect, ReactNode } from "react";
-import { Event } from "../data/types"; // Importa el tipo de Event desde types.ts
-import { events as initialEvents } from "../data/data"; // Importa los eventos desde data.ts
+import { Event } from "../data/types";
+import { events as initialEvents } from "../data/data";
 
-// El tipo del contexto
 interface EventContextType {
     events: Event[];
     setEvents: React.Dispatch<React.SetStateAction<Event[]>>;
+    addEvent: (newEvent: Event) => void;
+    deleteEvent: (name: string) => void; // Función para eliminar
+    editEvent: (name: string, updatedEvent: Partial<Event>) => void; // Función para editar
 }
 
 const EventContext = createContext<EventContextType | undefined>(undefined);
@@ -15,20 +17,38 @@ interface EventProviderProps {
 }
 
 export const EventProvider: React.FC<EventProviderProps> = ({ children }) => {
-    const [events, setEvents] = useState<Event[]>([]); // Estado inicial vacío
+    const [events, setEvents] = useState<Event[]>([]);
 
     useEffect(() => {
-        setEvents(initialEvents); // Cargar los eventos desde data.ts
+        setEvents(initialEvents); // Cargar eventos iniciales
     }, []);
 
+    const addEvent = (newEvent: Event) => {
+        setEvents((prevEvents) => [...prevEvents, newEvent]);
+    };
+
+    const deleteEvent = (name: string) => {
+        setEvents((prevEvents) => prevEvents.filter((event) => event.name !== name));
+    };
+
+    const editEvent = (name: string, updatedEvent: Partial<Event>) => {
+        setEvents((prevEvents) =>
+            prevEvents.map((event) =>
+                event.name === name ? { ...event, ...updatedEvent } : event
+            )
+        );
+    };
+
     return (
-        <EventContext.Provider value={{ events, setEvents }}>
+        <EventContext.Provider
+            value={{ events, setEvents, addEvent, deleteEvent, editEvent }}
+        >
             {children}
         </EventContext.Provider>
     );
 };
 
-// Custom Hook para usar el contexto de eventos
+// Custom hook para usar el contexto
 export const useEvents = () => {
     const context = React.useContext(EventContext);
     if (!context) {
