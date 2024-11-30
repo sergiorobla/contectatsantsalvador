@@ -1,4 +1,8 @@
 /* VARIABLES: COLORES UTILIZADOS EN LA PÁGINA */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Light Scheme */
   --light-primario: #9f0010;
@@ -112,6 +116,30 @@ body {
   position: fixed;
   width: 100vw;
   z-index: 100;
+}
+
+.event-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.event-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+.event-content::-webkit-scrollbar {
+    width: 8px; /* Ancho del scrollbar */
+    background-color: #f0f0f0; /* Fondo del scrollbar */
+}
+
+.event-content::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color del "thumb" */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.event-content::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color al pasar el cursor */
 }
 
 .cab {
@@ -679,7 +707,7 @@ body {
 @media (max-width: 1290px) {
   .cab {
     flex-direction: column;
-    padding-bottom: 30px !important;
+    padding-bottom: 5px !important;
   }
   .inicio-busc {
     padding: 200px 0 100px;
@@ -708,7 +736,7 @@ body {
 
 @media (max-width: 550px) {
   .cab {
-    padding-bottom: 10px !important;
+    padding-bottom: 2px !important;
   }
   .menu {
     display: none;
